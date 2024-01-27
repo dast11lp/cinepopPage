@@ -28,18 +28,18 @@ export const Routing = () => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="layout">
         <Header />
         <div className="anyContent">
           <Routes>
-            <Route  path="/cinepopPage" element={<CommonLayout />}>
+            <Route  path="/" element={<CommonLayout />}>
               <Route path="cartelera" element={<ListingMovies />} />
               <Route path="comidas" element={<Food />} />
               <Route path="funciones/:id" element={<FunctionsMovie />} />
             </Route>
 
-            <Route path="/" element={<PublicLayout />}>
+            <Route path="/public" element={<PublicLayout />}>
               <Route path="login" element={<Login />} />
               <Route path="registro" element={<Register />} />
             </Route>
@@ -73,6 +73,6 @@ export const Routing = () => {
         </div>
         {modalOpen && <Modal />}
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };

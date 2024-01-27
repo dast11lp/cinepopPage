@@ -18,7 +18,7 @@ export const Register = () => {
 
   const onSubmit = (data)  => {
     dispatch(registerFetchMiddleware(data))
-    navigate("/login")
+    navigate("/public/login")
   }
   
   return (

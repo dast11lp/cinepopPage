@@ -6,11 +6,11 @@ import { useLocation } from 'react-router-dom';
 export const Header = () => {
   const location = useLocation();
   return (
-    <header className={`header ${location.pathname == "/cinepopPage"? "header--viewport" : ""}`}>
+    <header className={`header ${location.pathname == "/"? "header--viewport" : ""}`}>
         <div className='header__nav'>
           <Navbar />
         </div>
-        {location.pathname == "/cinepopPage" ? <HeaderContent />: ""}
+        {location.pathname == "/" ? <HeaderContent />: ""}
     </header>
   )
 }

@@ -6,5 +6,5 @@ export const PrivateLayout = () => {
   const user =  useSelector(state => state.auth.userLogin?.userData) || localStorage.getItem("user");
  
 
-  return <> {user ? <Outlet /> : <Navigate to="/login" replace={true} />}</>
+  return <> {user ? <Outlet /> : <Navigate to="/public/login" replace={true} />}</>
 };

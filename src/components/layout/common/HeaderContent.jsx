@@ -12,7 +12,7 @@ export const HeaderContent = () => {
         <div className="header__content__title__box">
           <img className="header__content__title__box__img"src={starwarsTitle}alt="movie title"/>
           <div className="header__content__title__box__info">
-            <Link to="/cinepopPage/funciones/4" className="button">Reserva ahora</Link>
+            <Link to="/funciones/4" className="button">Reserva ahora</Link>
             <p className="header__content__title__box__info__legend">
               <span>Mayo 4 2026</span><span>Solo en cines</span>
             </p>

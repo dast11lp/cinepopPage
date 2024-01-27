@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // to deploy github
-  base: "/cinepopPage",
+  base: "/cinepopPage/",
 })

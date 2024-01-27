@@ -29,7 +29,7 @@ export const ListingMovies = () => {
     return (
       <div className="listMovies">
         {listMovies.map((movie) => (
-          <Link to={`/cinepopPage/funciones/${movie.id}`} key={movie.id} className="card__link">
+          <Link to={`/funciones/${movie.id}`} key={movie.id} className="card__link">
             <Card
               title={movie.movieName}
               img={movie.poster}

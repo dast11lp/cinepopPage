@@ -47,14 +47,14 @@ export const Input = ({
 
         {!validateCustom ? (
           <input
-            className={`input__field ${location.pathname == "/login" ? "input__field--login" : ""}`}
+            className={`input__field ${location.pathname == "/public/login" ? "input__field--login" : ""}`}
             {...register(name, { required, minLength, maxLength, pattern })}
             type={type}
             placeholder={placeholder}
           />
         ) : (
           <input
-            className={`input__field ${location.pathname == "/login" ? "input__field--login" : ""}`}
+            className={`input__field ${location.pathname == "/public/login" ? "input__field--login" : ""}`}
             {...register(name, {
               required,
               minLength,

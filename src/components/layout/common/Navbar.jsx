@@ -42,7 +42,7 @@ export const Navbar = () => {
         <div className="navbar__nav">
           <div className="navbar__nav__brand">
             {/* <svg></svg> */}
-            <Link className="navbar__nav__brand__name" to="/cinepopPage">
+            <Link className="navbar__nav__brand__name" to="/">
               CinePop
             </Link>
           </div>
@@ -52,17 +52,17 @@ export const Navbar = () => {
             </div>
             <ul className={`navbar__nav__navlinks__links ${OpenNavMenu && "active-menu-2"}`} >
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinepopPage" end>Inicio</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/" end>Inicio</NavLink>
               </li>
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinepopPage/cartelera">Cartelera</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cartelera">Cartelera</NavLink>
               </li>
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinepopPage/comidas">Comidas</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/comidas">Comidas</NavLink>
               </li>
               {!user ? 
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/registro">Registrarse</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/public/registro">Registrarse</NavLink>
               </li> : 
               <li className="navbar__nav__navlinks__links__li navbar__nav__navlinks__links__li--visibility">
               <div className="navbar__nav__user">
@@ -91,7 +91,7 @@ export const Navbar = () => {
               </div>
             </div>
           ) : (
-            location.pathname != "/login" && <Link to="/login" className={`button ${location.pathname == "/" &&" button--secundary"}`}>
+            location.pathname != "/public/login" && <Link to="/public/login" className={`button ${location.pathname == "/" &&" button--secundary"}`}>
               Iniciar Sesión
             </Link>
           )}
