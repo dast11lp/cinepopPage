@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link, useLocation, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link,  HashRouter} from "react-router-dom";
 import { ListingMovies } from "../components/layout/common/ListingMovies";
 import { Login } from "../components/layout/public/Login";
 import { Register } from "../components/layout/public/Register";
@@ -28,12 +28,12 @@ export const Routing = () => {
   }, []);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="layout">
         <Header />
         <div className="anyContent">
           <Routes>
-            <Route  path="/cinepopPage/" element={<CommonLayout />}>
+            <Route  path="/cinepopPage" element={<CommonLayout />}>
               <Route path="cartelera" element={<ListingMovies />} />
               <Route path="comidas" element={<Food />} />
               <Route path="funciones/:id" element={<FunctionsMovie />} />
@@ -73,6 +73,6 @@ export const Routing = () => {
         </div>
         {modalOpen && <Modal />}
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
