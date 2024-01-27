@@ -27,7 +27,7 @@ export const PurchaseSummary = () => {
                 <p className="unique-reserve__content__item unique-reserve__content__item--pg">Precio Total: {purchaseSummary?.totalMount}</p>
         </div>
       </div>
-      <button onClick= {() => {dispatch(clearSlice()); navigate("/cinemaToRenderReact/cartelera", {replace: true})}} className="button">Seguir Comprando</button>
+      <button onClick= {() => {dispatch(clearSlice()); navigate("/cinepopPage/cartelera", {replace: true})}} className="button">Seguir Comprando</button>
     </div>
   )
 } else {

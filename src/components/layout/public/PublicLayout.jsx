@@ -16,5 +16,5 @@ export const PublicLayout = () => {
     dispatch(setPreviousPage(previousPageTwo));
   }, [location.pathname]);
 
-  return <> {!user ? <Outlet /> : <Navigate to="/cinemaToRenderReact" replace={true} />}</>;
+  return <> {!user ? <Outlet /> : <Navigate to="/cinepopPage" replace={true} />}</>;
 };

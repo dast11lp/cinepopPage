@@ -33,7 +33,7 @@ export const Routing = () => {
         <Header />
         <div className="anyContent">
           <Routes>
-            <Route  path="/cinemaToRenderReact" element={<CommonLayout />}>
+            <Route  path="/cinepopPage" element={<CommonLayout />}>
               <Route path="cartelera" element={<ListingMovies />} />
               <Route path="comidas" element={<Food />} />
               <Route path="funciones/:id" element={<FunctionsMovie />} />

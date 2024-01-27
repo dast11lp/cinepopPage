@@ -42,7 +42,7 @@ export const Navbar = () => {
         <div className="navbar__nav">
           <div className="navbar__nav__brand">
             {/* <svg></svg> */}
-            <Link className="navbar__nav__brand__name" to="/cinemaToRenderReact">
+            <Link className="navbar__nav__brand__name" to="/cinepopPage">
               CinePop
             </Link>
           </div>
@@ -52,13 +52,13 @@ export const Navbar = () => {
             </div>
             <ul className={`navbar__nav__navlinks__links ${OpenNavMenu && "active-menu-2"}`} >
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinemaToRenderReact" end>Inicio</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinepopPage" end>Inicio</NavLink>
               </li>
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinemaToRenderReact/cartelera">Cartelera</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinepopPage/cartelera">Cartelera</NavLink>
               </li>
               <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinemaToRenderReact/comidas">Comidas</NavLink>
+                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cinepopPage/comidas">Comidas</NavLink>
               </li>
               {!user ? 
               <li className="navbar__nav__navlinks__links__li">
