@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link,  HashRouter} from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, Link,  HashRouter} from "react-router-dom";
 import { ListingMovies } from "../components/layout/common/ListingMovies";
 import { Login } from "../components/layout/public/Login";
 import { Register } from "../components/layout/public/Register";
@@ -25,7 +25,7 @@ export const Routing = () => {
   const modalOpen = modalSlice.open;
   useEffect(() => {
     dispatch(getLogin());
-  }, []);
+  });
 
   return (
     <HashRouter>
