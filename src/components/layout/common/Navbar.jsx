@@ -91,7 +91,7 @@ export const Navbar = () => {
               </div>
             </div>
           ) : (
-            location.pathname != "/public/login" && <Link to="/public/login" className={`button ${location.pathname == "/" &&" button--secundary"}`}>
+            location.pathname != "/public/login" && <Link to="/public/login" className={`button ${location.pathname == "/" &&" button--tertiary"}`}>
               Iniciar Sesión
             </Link>
           )}

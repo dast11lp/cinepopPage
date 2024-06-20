@@ -47,4 +47,9 @@
         background-color: v.$color-primary;
         color: v.$color-secundary;
     }
+
+    &--tertiary {
+        background-color: v.$color-tertiary;
+        color: v.$color-secundary;
+    }
 }
