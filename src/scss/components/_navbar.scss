@@ -66,6 +66,9 @@
          position: relative;
          display: flex;
          align-items: center;
+         background-color: v.$color-tertiary;
+         padding: 10px ;
+         border-radius: 5px;
          &__menu {
             visibility: hidden;
             display: none;
