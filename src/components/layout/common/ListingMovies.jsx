@@ -31,13 +31,7 @@ export const ListingMovies = () => {
         {listMovies.map((movie) => (
           <Link to={`/funciones/${movie.id}`} key={movie.id} className="card__link">
             <Card
-              title={movie.movieName}
-              img={movie.poster}
-              language={movie.language}
-              description={movie.descripction}
-              director={movie.director}
-              protagonists={movie.protagonists}
-              country={movie.country}
+              movie={movie}
             />
           </Link>
         ))}

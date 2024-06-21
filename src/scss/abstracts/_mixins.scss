@@ -225,7 +225,19 @@
         &__movie-meta {
             font-size: clamp(1.2rem, 4vw, 1.6rem);
         }
+        
     }
+
+    @media screen and (max-width: 520px) {
+        
+        &--horizontal {
+            display: grid;
+            grid-template-rows: 1fr 19rem;
+            grid-template-columns: 1fr;
+            width: 90vw;
+        }
+    }
+
 }
 
 @mixin listMovies($breakpoint) {
