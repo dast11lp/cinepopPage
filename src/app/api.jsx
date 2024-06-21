@@ -14,9 +14,17 @@ export const loginFetch = async (user) => {
     if(request.status == 401) {
       throw request.status
     }
+
+    else if(request.status == 500) {
+      throw request.status
+    }
+
     const data = await request.json();
 
-    return data;
+    if(request.status == 200) {
+      return data;
+    }
+   
   } catch (error) {
     
     throw error;
