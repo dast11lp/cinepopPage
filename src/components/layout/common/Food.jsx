@@ -24,7 +24,7 @@ export const Food = () => {
         id: 3,
         name: "Gaseosa",
         description: "Un refresco burbujeante y refrescante que sacia la sed al instante, con su característico sabor dulce y una sensación ligera en el paladar. Perfecto para acompañar cualquier comida o disfrutar por sí solo en cualquier momento del día.",
-        img: hotdogImage
+        img: sodaImage
     }]
   return (
     <div>
