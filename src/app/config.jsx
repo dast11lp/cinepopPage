@@ -1,6 +1,6 @@
 const Config = {
     // hostname: 'http://localhost:8080/',
-    hostname: 'https://cinepopserver.onrender.com/'
+    hostname: 'https://cinema-sprinb-boot-production.up.railway.app/'
 }
 
 export {Config}
