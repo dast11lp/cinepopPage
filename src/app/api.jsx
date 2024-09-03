@@ -1,9 +1,9 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import {Config} from "./config";
+// import {Config} from "./config";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export const loginFetch = async (user) => {
   try {
-    const request = await fetch(`${Config.hostname}auth/login`, {
+    const request = await fetch(`${apiUrl}auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const loginFetch = async (user) => {
 
 export const ListingMoviesFetch = async () => {
   try {
-    const request = await fetch(`${Config.hostname}movies/list`, {
+    const request = await fetch(`${apiUrl}movies/list`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export const ListingMoviesFetch = async () => {
 
 export const listFuncMovieFetch = async (id) => {
   try {
-    const request = await fetch(`${Config.hostname}function-movie/${id}`, {
+    const request = await fetch(`${apiUrl}function-movie/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const listFuncMovieFetch = async (id) => {
 
 export const functionFetch = async (id) => {
   try {
-    const request = await fetch(`${Config.hostname}functions/${id}`, {
+    const request = await fetch(`${apiUrl}functions/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -85,7 +85,7 @@ export const reserveFetch = async (body) => {
   const idUser = JSON.parse(localStorage.getItem("user"))?.userData?.idUser;
 
   try {
-    const request = await fetch(`${Config.hostname}reservation/user/${idUser}/reserve-function-movie/`, {
+    const request = await fetch(`${apiUrl}reservation/user/${idUser}/reserve-function-movie/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,7 +104,7 @@ export const reserveFetch = async (body) => {
 
 export const registerFetch = async(body) => {
   try {
-    const request = await fetch(`${Config.hostname}auth/register`, {
+    const request = await fetch(`${apiUrl}auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +121,7 @@ export const registerFetch = async(body) => {
 
 export const getUniqueReservation = async (idUser, idReservation)  => {
   try {
-    const request = await fetch (`${Config.hostname}reservation/user/${idUser}/getReserve/${idReservation}`, {
+    const request = await fetch (`${apiUrl}reservation/user/${idUser}/getReserve/${idReservation}`, {
       method: "GET",
       headers: {
         "Content_type": "application/json",
@@ -139,7 +139,7 @@ export const getUniqueReservation = async (idUser, idReservation)  => {
 
 export const getReservationIds = async (idUser)  => {
   try {
-    const request = await fetch (`${Config.hostname}reservation/user/${idUser}/getMyReserveIds`, {
+    const request = await fetch (`${apiUrl}reservation/user/${idUser}/getMyReserveIds`, {
       method: "GET",
       headers: {
         "Content_type": "application/json",
@@ -156,7 +156,7 @@ export const getReservationIds = async (idUser)  => {
 
 export const getReservationByPages = async (page = 1 , userId)  => {
   try {
-    const request = await fetch (`${Config.hostname}reservation/user/${userId}/getReservesPages?page=${page}`, {
+    const request = await fetch (`${apiUrl}reservation/user/${userId}/getReservesPages?page=${page}`, {
       method: "GET",
       headers: {
         "Content_type": "application/json",

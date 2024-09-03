@@ -4,6 +4,8 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { setLogOut } from "../../../features/Auth/authSlice";
 import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UserMenu from "./UserMenu";
+import Nav from "./Nav";
 
 export const Navbar = () => {
   const location = useLocation()
@@ -16,7 +18,7 @@ export const Navbar = () => {
   const regex = new RegExp(privateUrls.join('|'));
 
   // const user = useSelector((state) => state.auth.userLogin?.userData) || JSON.parse(localStorage.getItem("user"))?.userData;
-  const user =  JSON.parse(localStorage.getItem("user"))?.userData;
+  const user = JSON.parse(localStorage.getItem("user"))?.userData;
   let nameUser = useSelector((state) => state.auth.userLogin?.userData?.name) || JSON.parse(localStorage.getItem("user"))?.userData?.name;
 
   nameUser = nameUser && nameUser.toUpperCase() + " ";
@@ -24,17 +26,10 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logOut = () => {
-    dispatch(setLogOut());
-    if (regex.test(location.pathname)) {
-      navigate("/", { replace: true });
-    }
-  };
-
   useEffect(() => {
     setOpenUserMenu(false)
     setOpenNavMenu(false)
-  },[location.pathname])
+  }, [location.pathname])
 
   return (
     <div className="navbar">
@@ -46,55 +41,15 @@ export const Navbar = () => {
               CinePop
             </Link>
           </div>
-          <div className="navbar__nav__navlinks ">
-            <div className="navbar__nav__navlinks__menu-burger" onClick={() => {setOpenNavMenu(!OpenNavMenu)}}>
-              <FontAwesomeIcon icon={faBars} />
-            </div>
-            <ul className={`navbar__nav__navlinks__links ${OpenNavMenu && "active-menu-2"}`} >
-              <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/" end>Inicio</NavLink>
-              </li>
-              <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/cartelera">Cartelera</NavLink>
-              </li>
-              <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/comidas">Comidas</NavLink>
-              </li>
-              {!user ? 
-              <li className="navbar__nav__navlinks__links__li">
-                <NavLink className="navbar__nav__navlinks__links__li__link" to="/public/registro">Registrarse</NavLink>
-              </li> : 
-              <li className="navbar__nav__navlinks__links__li navbar__nav__navlinks__links__li--visibility">
-              <div className="navbar__nav__user">
-                <div className="navbar__nav__user__button" onClick={() => setOpenUserMenu(!OpenUserMenu)} >
-                {nameUser ? <span className={`navbar__nav__user__button__username`}>{nameUser}</span> : ''}
-                  <FontAwesomeIcon icon={faUser} />
-                </div>
-                <div className={`navbar__nav__user__menu ${ OpenUserMenu && "active-menu" }`} >
-                  <Link to="/usuario/miscompras"> Mis Compras </Link>
-                  <button onClick={logOut} to="#"> Cerrar Sesión </button>
-                </div>
-            </div></li>}
-
-            </ul>
-          </div>
-          <div className={`navbar__nav__userbox ${user ? 'navbar__nav__userbox--visibility': ''} `} >
+          <Nav setOpenNavMenu={setOpenNavMenu} OpenNavMenu={OpenNavMenu} OpenUserMenu={OpenUserMenu} setOpenUserMenu={setOpenUserMenu} />
+          <div className={`navbar__nav__userbox ${user ? 'navbar__nav__userbox--visibility' : ''} `} >
             {user ? (
-            <div className="navbar__nav__user">
-              <div className="navbar__nav__user__button" onClick={() => setOpenUserMenu(!OpenUserMenu)} >
-              {nameUser ? <span className="navbar__nav__user__button__username">{nameUser}</span> : ''}
-                <FontAwesomeIcon icon={faUser} />
-              </div>
-              <div className={`navbar__nav__user__menu ${ OpenUserMenu && "active-menu" }`} >
-                <button onClick={logOut} to="#"> Cerrar Sesión </button>
-                <Link to="/usuario/miscompras"> Mis Compras </Link>
-              </div>
-            </div>
-          ) : (
-            location.pathname != "/public/login" && <Link to="/public/login" className={`button ${location.pathname == "/" &&" button--tertiary"}`}>
-              Iniciar Sesión
-            </Link>
-          )}
+              <UserMenu OpenUserMenu={OpenUserMenu} setOpenUserMenu={setOpenUserMenu} />
+            ) : (
+              location.pathname != "/public/login" && <Link to="/public/login" className={`button ${location.pathname == "/" && " button--tertiary"}`}>
+                Iniciar Sesión
+              </Link>
+            )}
           </div>
         </div>
       </div>
