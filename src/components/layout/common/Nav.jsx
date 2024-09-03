@@ -29,7 +29,7 @@ const Nav = ({ setOpenNavMenu, OpenNavMenu, OpenUserMenu, setOpenUserMenu }) => 
                             <NavLink className="navbar__nav__navlinks__links__li__link" to="/public/registro">Registrarse</NavLink>
                         </li> :
                         <li className="navbar__nav__navlinks__links__li navbar__nav__navlinks__links__li--visibility">
-                            <UserMenu OpenUserMenu={OpenUserMenu} setOpenUserMenu={setOpenUserMenu} />
+                            <UserMenu />
                         </li>
                 }
             </ul>

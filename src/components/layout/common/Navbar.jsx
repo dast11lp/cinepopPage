@@ -44,7 +44,7 @@ export const Navbar = () => {
           <Nav setOpenNavMenu={setOpenNavMenu} OpenNavMenu={OpenNavMenu} OpenUserMenu={OpenUserMenu} setOpenUserMenu={setOpenUserMenu} />
           <div className={`navbar__nav__userbox ${user ? 'navbar__nav__userbox--visibility' : ''} `} >
             {user ? (
-              <UserMenu OpenUserMenu={OpenUserMenu} setOpenUserMenu={setOpenUserMenu} />
+              <UserMenu/>
             ) : (
               location.pathname != "/public/login" && <Link to="/public/login" className={`button ${location.pathname == "/" && " button--tertiary"}`}>
                 Iniciar Sesión

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 
-const useCloseComponent = () => {
+const useCloseComponent = (ref) => {
 
     const [openElement, setOpenElement] = useState(false);
 
