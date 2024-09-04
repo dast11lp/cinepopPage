@@ -10,24 +10,28 @@ const ListingMoviesSlice = createSlice({
   initialState,
   reducers: {
     getMovies: (state, action) => {
-        state.listingMovies = action.payload
+      state.listingMovies = action.payload
     },
+
+    cleanMovies: (state) => {
+      state.listingMovies = []
+    }
   },
 });
 
 
 
 export const getMoviesMiddleware = () => async (dispatch) => {
-    try {
-      const data = await ListingMoviesFetch();
-      dispatch(getMovies(data));
-    }catch(error) {
-      throw error
-    }
-    
+  try {
+    const data = await ListingMoviesFetch();
+    dispatch(getMovies(data));
+  } catch (error) {
+    throw error
+  }
+
 }
 
-export const {getMovies} = ListingMoviesSlice.actions;
+export const { getMovies, cleanMovies } = ListingMoviesSlice.actions;
 
 export default ListingMoviesSlice.reducer;
 

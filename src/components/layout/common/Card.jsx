@@ -3,8 +3,6 @@ import React from 'react'
 export const Card = ({movie}) => {
   return (
     <div className='card'>
-      {console.log(movie)}
-
       <div className='card__img-container '>
         <img  className="card__img-container__img" src={movie.poster} alt="" />
       </div>

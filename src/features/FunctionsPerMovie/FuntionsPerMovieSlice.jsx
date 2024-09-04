@@ -25,6 +25,10 @@ const listFunctionsPerMovie = createSlice({
 
       state.functionPerDate = Object.fromEntries(map);
     },
+
+    cleanListFuncPerMovie: (state) => {
+      state.movieFunction = []
+    }
   },
 });
 
@@ -37,6 +41,6 @@ export const getFuncMovieMiddleware = (id) => async (dispatch) => {
   }
 };
 
-export const { getListFuncPerMovie } = listFunctionsPerMovie.actions;
+export const { getListFuncPerMovie, cleanListFuncPerMovie } = listFunctionsPerMovie.actions;
 
 export default listFunctionsPerMovie.reducer;

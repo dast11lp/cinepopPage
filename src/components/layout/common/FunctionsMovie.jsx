@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getFuncMovieMiddleware } from "../../../features/FunctionsPerMovie/FuntionsPerMovieSlice";
+import { cleanListFuncPerMovie, getFuncMovieMiddleware } from "../../../features/FunctionsPerMovie/FuntionsPerMovieSlice";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FunctionItem } from "./FunctionItem";
@@ -17,6 +17,10 @@ export const FunctionsMovie = () => {
 
   useEffect(() => {
     dispatch(getFuncMovieMiddleware(id));
+
+    return ()  => {
+      dispatch(cleanListFuncPerMovie())
+    }
   }, []);
 
   if (Object.keys(listFuntions).length > 0 && listFuntions.id == id) {

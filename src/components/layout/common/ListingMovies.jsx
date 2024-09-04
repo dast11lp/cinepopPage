@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMoviesMiddleware } from "../../../features/ListingMovies/ListingMoviesSlice";
+import { getMoviesMiddleware, cleanMovies } from "../../../features/ListingMovies/ListingMoviesSlice";
 import { Card } from "./Card";
 import { Link } from "react-router-dom";
 import { setModal } from "../../../features/Modal/modalSlice";
@@ -8,21 +8,25 @@ import { Loading } from "./Loading";
 
 export const ListingMovies = () => {
   const listMovies = useSelector((state) => state.listMovies.listingMovies);
-  
 
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
     dispatch(getMoviesMiddleware())
-    .catch((error) => {
-      dispatch(setModal({
-        type: "error",
-        title: "Error de conexion.",
-        message: error.toString(),
-        open: true,
-      }))
-    });
-    
+      .catch((error) => {
+        dispatch(setModal({
+          type: "error",
+          title: "Error de conexion.",
+          message: error.toString(),
+          open: true,
+        }))
+      })
+
+    return () => {
+      dispatch(cleanMovies())
+    }
   }, []);
 
   if (listMovies.length > 0) {

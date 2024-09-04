@@ -20,6 +20,8 @@
         height: 55vh;
         width: 50vw;
 
+        padding:  1.5rem;
+
         max-width: 66rem;
         max-height: 38.2rem;
         border-radius: 4px;
@@ -28,16 +30,25 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+        
 
         &__close-button {
             position: absolute;
             top: 5px;
             right: 5px;
-            font-size: clamp(2rem,3vw,3rem);
+            font-size: clamp(2rem,0.5vw,3rem);
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         &__content {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
             & h2 {
                 color: v.$color--error-primary;
                 font-size: clamp(1.1rem,5vw,5rem);

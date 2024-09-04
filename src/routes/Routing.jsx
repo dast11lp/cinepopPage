@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, Link,  HashRouter} from "react-router-dom";
+import { Routes, Route, Link, HashRouter } from "react-router-dom";
 import { ListingMovies } from "../components/layout/common/ListingMovies";
 import { Login } from "../components/layout/public/Login";
 import { Register } from "../components/layout/public/Register";
@@ -17,15 +17,28 @@ import { PrivateLayout } from "../components/layout/private/PrivateLayout";
 import { MyReserves } from "../components/layout/private/MyReserves";
 import { PurchaseSummary } from "../components/layout/private/PurchaseSummary";
 import { CommonLayout } from "../components/layout/common/CommonLayout";
+import { setModal } from "../features/Modal/modalSlice";
 
 export const Routing = () => {
   const dispatch = useDispatch();
 
   const modalSlice = useSelector((state) => state.modal.modalData);
   const modalOpen = modalSlice.open;
+
+  const message = 
+  'Este proyecto tiene su propia API desarrollada en Java, la cual se ejecuta en un servidor gratuito en render.com. Por favor, ten paciencia con los tiempos de carga. En ocasiones, puede tomar hasta 10 minutos la primera vez que se realiza una llamada al servidor 😔.'
+  + 'Si ves un mensaje de error de conexión, por favor intenta nuevamente.'
+
   useEffect(() => {
     dispatch(getLogin());
-  });
+
+    dispatch(setModal({
+      type: "error",
+      title: "¡Bienvenido!",
+      message,
+      open: true,
+    }))
+  }, []);
 
   return (
     <HashRouter>
@@ -33,7 +46,7 @@ export const Routing = () => {
         <Header />
         <div className="anyContent">
           <Routes>
-            <Route  path="/" element={<CommonLayout />}>
+            <Route path="/" element={<CommonLayout />}>
               <Route path="cartelera" element={<ListingMovies />} />
               <Route path="comidas" element={<Food />} />
               <Route path="funciones/:id" element={<FunctionsMovie />} />
