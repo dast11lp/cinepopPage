@@ -1,6 +1,6 @@
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useLogout from '../../../hooks/useLogout';

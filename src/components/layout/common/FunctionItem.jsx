@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { DropDown } from "./DropDown";
 
 export const FunctionItem = ({ functionsMovie, functionsDate }) => {
-  
 
   const dropDown = ({ target }) => {
     const myDropDown = document.querySelector(`.dropdown--${functionsDate}`);
@@ -29,19 +28,12 @@ export const FunctionItem = ({ functionsMovie, functionsDate }) => {
         </div>
       </div>
       <div className={`dropdown dropdown--hidden dropdown--${functionsDate}`}>
-        {functionsMovie.map((el, i) => (
-          <div
-            key={i}
-            className={`dropdown__content`}
-            data-content={functionsDate}
-          >
-            <h4>Hora: {el.function.hourTime}</h4>
-            <Link to={`/compras/funcion/tickets/${el.function.id}`} className="link">
-              Ver Disponibilidad
-            </Link>
-          </div>
-        ))}
+        {functionsMovie.length > 0 && functionsMovie.map((movie, i) =>
+          <DropDown key={i} movie={movie} />
+        )}
       </div>
     </div>
   );
 };
+
+

@@ -6,6 +6,7 @@ import modal from '../features/Modal/modalSlice'
 import function_ from '../features/Function_/funtionSlice'
 import reservation  from "../features/UniqueReserve/uniqueReserveSlice";
 import previousPath  from "../features/PreviousPath/previousPathSlice";
+import chairs  from "../features/Chairs/ChairsSlice";
 
 export const store = configureStore({
     reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
         function_,
         reservation,
         previousPath,
+        chairs,
     }
 })

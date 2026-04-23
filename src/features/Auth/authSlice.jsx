@@ -14,11 +14,11 @@ const authSlice = createSlice({
       localStorage.setItem("user", JSON.stringify(state.userLogin));
       localStorage.setItem("token", action.payload.Authorization);
     },
-    setLogOut: (state, action) => {
+    setLogOut: (state) => {
       state.userLogin = {};
       localStorage.removeItem("user"), localStorage.removeItem("token");
     },
-    getLogin: (state, action) => {
+    getLogin: (state) => {
       const user = JSON.parse(localStorage.getItem("user"));
       state.userLogin = { ...user, token: localStorage.getItem("token") };
     },

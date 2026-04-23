@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { functionFetch, reserveFetch } from "../../app/api";
 
 const initialState = {
@@ -79,7 +79,6 @@ const functionSlice = createSlice({
         state.selectedIdSeats = state.selectedIdSeats.filter((el) => el != action.payload.idSeat);
         ///
         state.selectedSeats = state.selectedSeats.filter((el) => el != action.payload.numSeat);
-      } else {
       }
     },
     setPurchaseSummary: (state, action) => {

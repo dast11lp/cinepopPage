@@ -1,9 +1,9 @@
 import { faCircleMinus, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addSeat, functionFetchMiddleware, setDesiredSeats, subtractSeat } from "../../../features/Function_/funtionSlice";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link,  useParams } from "react-router-dom";
 
 export const GetFunctionTickets = () => {
 
@@ -13,8 +13,6 @@ export const GetFunctionTickets = () => {
   const function_ = useSelector(state => state?.function_?.function_)
 
   const [isDisabled, setIsDisabled] = useState(true)
-
-  const navigate = useNavigate();
 
   const { id } = useParams();
   

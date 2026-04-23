@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMoviesMiddleware, cleanMovies } from "../../../features/ListingMovies/ListingMoviesSlice";
 import { Card } from "./Card";

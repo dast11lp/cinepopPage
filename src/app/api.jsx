@@ -1,7 +1,8 @@
 // import {Config} from "./config";
-const apiUrl = import.meta.env.VITE_API_URL;
+let apiUrl = import.meta.env.VITE_API_URL;
 
 export const loginFetch = async (user) => {
+  // eslint-disable-next-line no-useless-catch
   try {
     const request = await fetch(`${apiUrl}auth/login`, {
       method: "POST",
@@ -58,6 +59,7 @@ export const listFuncMovieFetch = async (id) => {
     });
     const data = await request.json();
     return data;
+    
   } catch (error) {
     console.error(error);
     throw error;
@@ -168,5 +170,23 @@ export const getReservationByPages = async (page = 1 , userId)  => {
   } catch (error) {
     console.log(error);
     throw error
+  }
+}
+
+
+
+export const getChairsFetch = async (id) => {
+  try {
+    const request = await fetch(`${apiUrl}functionChair/chairs-by-function/${id}`, {
+      method:"GET",
+      headers: {
+        "Content_type":"application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+    return request.json();
+  } catch (error) {
+    console.error(error);
+    
   }
 }

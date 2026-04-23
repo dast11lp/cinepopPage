@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { listFuncMovieFetch } from "../../app/api";
-import { current } from "@reduxjs/toolkit";
 
 const initialState = {
   movieFunction: {},
@@ -16,7 +15,7 @@ const listFunctionsPerMovie = createSlice({
       state.movieFunction = action.payload;
       const map = new Map();
 
-      state.movieFunction.functionMovie.forEach((el, i) => {
+      state.movieFunction.functionMovie.forEach((el) => {
         if (!map.has(el.function.date)) {
           map.set(el.function.date, []);
         }
@@ -33,6 +32,7 @@ const listFunctionsPerMovie = createSlice({
 });
 
 export const getFuncMovieMiddleware = (id) => async (dispatch) => {
+  // eslint-disable-next-line no-useless-catch
   try {
     const data = await listFuncMovieFetch(id);
     dispatch(getListFuncPerMovie(data));
